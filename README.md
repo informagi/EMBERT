@@ -4,4 +4,6 @@ Github page with supplementary information to the paper `Entity-aware Transforme
 
 Structure of this github repository is as follows:
 
-*coming soon*
+In the Runs Directory, you can find all runs in the paper, with the same name as in the paper table 2. 
+
+The code is coming soon.
