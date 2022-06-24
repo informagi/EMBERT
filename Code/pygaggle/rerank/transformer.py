@@ -248,12 +248,8 @@ class EMBERT(Reranker):
 
     @staticmethod
     def get_ebert():
-        # wiki_emb = load_embedding("resources/wikipedia2vec.pkl")
-        # mapper = load_mapper("mappers/wikipedia2vec-base-cased.monobert-base-cased.linear.npy")
         wiki_emb_path = "resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl"
         mapper_path = "mappers/wikipedia2vec-500-cased.monobert-base-cased.linear.npy"
-        # wiki_emb_path = "/scratch/gerritse/pygaggle/resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl"
-        # mapper_path = "/scratch/gerritse/pygaggle/mappers/wikipedia2vec-500-cased.bert-large-uncased.linear"
         print("Loading ", wiki_emb_path, " and ", mapper_path)
         wiki_emb = load_embedding(wiki_emb_path)
         mapper = load_mapper(mapper_path)
