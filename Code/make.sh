@@ -30,3 +30,12 @@ tar -xvjf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_annotated.tar.gz
 # monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz
 wget -0 output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz https://surfdrive.surf.nl/files/index.php/s/5KQIRtiKikObJDG
 tar -xvjf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz -C /output
+
+
+mkdir -p data
+
+wget -0 data/DBpedia-Entity.tar.gz https://surfdrive.surf.nl/files/index.php/s/gUwRAg6XQbTgx91
+tar -xvjf data/DBpedia-Entity.tar.gz data/DBpedia-Entity
+
+wget -0 data/DBpedia-Entity-noent.tar.gz https://surfdrive.surf.nl/files/index.php/s/EJbDiEwqOYglEgD
+tar -xvjf data/DBpedia-Entity-noent.tar.gz data/DBpedia-Entity-noent
