@@ -13,12 +13,12 @@ mkdir -p indexes
 
 # Lucene index: indexes/lucene-index-dbpedia_annotated_full.tar.gz
 wget -O indexes/lucene-index-dbpedia_annotated_full.tar.gz https://surfdrive.surf.nl/files/index.php/s/ItjlwVhm8sApcZS/download
-tar -xvjf indexes/lucene-index-dbpedia_annotated_full.tar.gz -C /indexes
+tar -xvf indexes/lucene-index-dbpedia_annotated_full.tar.gz -C /indexes
 
 mkdir -p resources/wikipedia2vec/wikipedia-20190701
 # wikipedia2vec_500.pkl.tar.gz
 wget -O resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl.tar.gz https://surfdrive.surf.nl/files/index.php/s/mOYK4gZfI3yjsZd/download
-tar -xvjf resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl.tar.gz -C /resources/wikipedia2vec/wikipedia-20190701
+tar -xvf resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl.tar.gz -C /resources/wikipedia2vec/wikipedia-20190701
 
 
 
@@ -27,21 +27,21 @@ tar -xvjf resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl.tar.g
 mkdir -p output
 # monobert-large-msmarco-dbpedia_acc_batch_64_e6_annotated.tar.gz
 wget -O output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_annotated.tar.gz https://surfdrive.surf.nl/files/index.php/s/gfCY1dc5CdkbS5S/download
-tar -xvjf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_annotated.tar.gz -C /output
+tar -xvf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_annotated.tar.gz -C /output
 
 
 # monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz
 wget -O output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz https://surfdrive.surf.nl/files/index.php/s/5KQIRtiKikObJDG/download
-tar -xvjf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz -C /output
+tar -xvf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz -C /output
 
 
 wget -O output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6.tar.gz  https://surfdrive.surf.nl/files/index.php/s/eJsvZLceqi6kPeY
-tar -xvjf output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6.tar.gz  -C /output
+tar -xvf output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6.tar.gz  -C /output
 
 mkdir -p data
 
 wget -O data/DBpedia-Entity.tar.gz https://surfdrive.surf.nl/files/index.php/s/gUwRAg6XQbTgx91/download
-tar -xvjf data/DBpedia-Entity.tar.gz /data
+tar -xvf data/DBpedia-Entity.tar.gz /data
 
 wget -O data/DBpedia-Entity-noent.tar.gz https://surfdrive.surf.nl/files/index.php/s/EJbDiEwqOYglEgD/download
-tar -xvjf data/DBpedia-Entity-noent.tar.gz /data
+tar -xvf data/DBpedia-Entity-noent.tar.gz /data
