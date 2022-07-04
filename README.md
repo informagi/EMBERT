@@ -30,3 +30,16 @@ To use on your own datasets, make sure to provide all documents and queries as i
 An example of finetuning can be found in `Code/retraining_dbpedia_entity_folds.py`.
 
 
+You can cite us using 
+
+```
+@inproceedings{Gerritse:2022:Entity,
+author = {Gerritse, Emma and Hasibi, Faegheh and De Vries, Arjen},
+booktitle = {Proc. of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+series = {SIGIR '22},
+title = {{Entity-aware Transformers for Entity Search}},
+year = {2022}
+}
+```
+
+
