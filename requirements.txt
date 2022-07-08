@@ -1,0 +1,17 @@
+coloredlogs==14.0
+datasets==1.7.0
+gensim==3.8.3
+keras==2.9.0
+keras_nightly==2.5.0.dev2021032900
+numpy==1.21.2
+pandas==1.2.4
+pydantic==1.5
+pyserini==0.13.0
+pytorch_transformers==1.2.0
+scikit_learn==1.1.1
+scipy==1.6.2
+spacy==2.2.4
+tensorflow==2.5.0
+torch==1.8.1
+tqdm==4.63.0
+transformers==4.12.5
