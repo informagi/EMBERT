@@ -13,11 +13,12 @@ In the Runs Directory, you can find all runs in the paper, with the same name as
 In the Code directory, all code is available. All models and supplementary materials can be downloaded by running
 
 ```
-cd Code/
-sh make.sh
+sh build.sh
 ```
 
 Note that this will download around 40 gb of data.
+
+All Python packages can be downloaded with `pip install -r requirements.txt`
 
 ## Reranking
 
@@ -36,7 +37,25 @@ To use on your own datasets, make sure to provide all documents and queries as i
 
 An example of finetuning can be found in `Code/retraining_dbpedia_entity_folds.py`.
 
-## Citation
+
+## Downloads
+
+Everything needed to evaluate the model can be downloaded with the script in `Code/make.sh`
+If you just want the seperate models or Lucene indexes, they can be downloaded here.
+
+[Lucene index for DBpedia Entity](https://surfdrive.surf.nl/files/index.php/s/ItjlwVhm8sApcZS/download)
+
+[Wikipedia2vec embeddings](https://surfdrive.surf.nl/files/index.php/s/mOYK4gZfI3yjsZd/download)
+
+[EMBERT finetuned on Annotated Dbpedia, all 5 folds](https://surfdrive.surf.nl/files/index.php/s/gfCY1dc5CdkbS5S/download)
+
+[MonoBERT fintetuned on DBpedia, not annotated, all 5 folds](https://surfdrive.surf.nl/files/index.php/s/5KQIRtiKikObJDG/download)
+
+[EMBERT fintetuned on MSMARCO (EMBERT (1st) in paper)](https://surfdrive.surf.nl/files/index.php/s/eJsvZLceqi6kPeY)
+
+
+
+## Citation and contact
 
 You can cite us using 
 
@@ -49,5 +68,7 @@ title = {{Entity-aware Transformers for Entity Search}},
 year = {2022}
 }
 ```
+
+In case anything is missing, please either make an issue or send an emal to emma.gerritse@ru.nl
 
 

@@ -44,3 +44,8 @@ tar -xvf data/DBpedia-Entity.tar.gz -C data/
 
 wget -O data/DBpedia-Entity-noent.tar.gz https://surfdrive.surf.nl/files/index.php/s/EJbDiEwqOYglEgD/download
 tar -xvf data/DBpedia-Entity-noent.tar.gz -C data/
+
+mkdir -p traintest
+
+wget -O traintest/dbpedia_crossfolds.tar.gz https://surfdrive.surf.nl/files/index.php/s/WY47myXPsVVtMnU/download
+tar -xvf traintest/dbpedia_crossfolds.tar.gz -c traintest/
