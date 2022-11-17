@@ -43,7 +43,13 @@ An example of finetuning can be found in `Code/retraining_dbpedia_entity_folds.p
 Everything needed to evaluate the model can be downloaded with the script in `Code/make.sh`
 If you just want the seperate models or Lucene indexes, they can be downloaded here.
 
-[Lucene index for DBpedia Entity](https://surfdrive.surf.nl/files/index.php/s/ItjlwVhm8sApcZS/download)
+[TSV of DBpedia Entity](https://surfdrive.surf.nl/files/index.php/s/fT0R5czH4hmIlgw/download)
+
+[TSV of DBpedia Entity Annotated](https://surfdrive.surf.nl/files/index.php/s/hjMd4zYYn3VXoRM/download)
+
+[Lucene index for DBpedia Entity](https://surfdrive.surf.nl/files/index.php/s/K4TWcIWLHvDhrOK/download)
+
+[Lucene index for DBpedia Entity annotated](https://surfdrive.surf.nl/files/index.php/s/ItjlwVhm8sApcZS/download)
 
 [Wikipedia2vec embeddings](https://surfdrive.surf.nl/files/index.php/s/mOYK4gZfI3yjsZd/download)
 
