@@ -13,7 +13,7 @@ In the Runs Directory, you can find all runs in the paper, with the same name as
 In the Code directory, all code is available. All models and supplementary materials can be downloaded by running
 
 ```
-sh build.sh
+sh Code/make.sh
 ```
 
 Note that this will download around 40 gb of data.
