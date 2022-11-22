@@ -46,6 +46,8 @@ class PassageRankingEvaluationOptions(BaseModel):
     device: str
     is_duo: bool
     from_tf: bool
+    w2v: Optional[Path]
+    mapper: Optional[Path]
     metrics: List[str]
     model_type: Optional[str]
     tokenizer_name: Optional[str]
@@ -76,7 +78,15 @@ class PassageRankingEvaluationOptions(BaseModel):
         if v is None:
             return values['model']
         return v
+    @validator('w2v')
+    def w2v_dir_exists(cls, v: Path):
+        assert v.exists(), 'Wikipedia2vec must exist'
+        return v
 
+    @validator('mapper')
+    def mapper_dir_exists(cls, v: Path):
+        assert v.exists(), 'Mapper must exist'
+        return v
 
 def construct_t5(options: PassageRankingEvaluationOptions) -> Reranker:
     model = MonoT5.get_model(options.model,
@@ -125,7 +135,7 @@ def construct_seq_class_transformer(options: PassageRankingEvaluationOptions
         device = torch.device(options.device)
         model = model.to(device).eval()
     tokenizer = EMBERT.get_tokenizer(options.tokenizer_name)
-    return EMBERT(model, tokenizer)
+    return EMBERT(model, tokenizer, options.w2v, options.mapper)
 
 
 def construct_bm25(options: PassageRankingEvaluationOptions) -> Reranker:
@@ -139,6 +149,9 @@ def main():
                      default='msmarco'),
                  opt('--dataset', type=Path, required=True),
                  opt('--index-dir', type=Path, required=True),
+                 opt('--w2v', type=Path, required=False),
+                 opt('--mapper', type=Path, required=False),
+
                  opt('--method',
                      required=True,
                      type=str,

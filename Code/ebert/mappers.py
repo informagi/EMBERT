@@ -3,6 +3,7 @@ import torch
 from ebert.config import *
 
 def load_mapper(name, gpu=True):
+    name = str(name)
     if "ota" in name:
         return PytorchMapper.load(name)
     if "mlp" in name:

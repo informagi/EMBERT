@@ -226,12 +226,19 @@ class MonoBERT(Reranker):
 class EMBERT(Reranker):
     def __init__(self,
                  model: PreTrainedModel = None,
-                 tokenizer: PreTrainedTokenizer = None):
+                 tokenizer: PreTrainedTokenizer = None,
+                 w2v = "../resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl",
+                 mapper = "mappers/wikipedia2vec-500-cased.monobert-base-cased.linear.npy"):
         self.model = model or self.get_model()
         self.tokenizer = tokenizer or self.get_tokenizer()
         self.device = next(self.model[0].parameters(), None).device
+        self.wiki_emb_path = w2v
+        self.mapper_path = mapper
         self.ebert = self.get_ebert()
         self.ent_preamb = ['ENTITY/', 'ENTITIY/']
+
+
+
 
 
     @staticmethod
@@ -240,19 +247,19 @@ class EMBERT(Reranker):
                   *args, device: str = None, **kwargs) -> BertForSequenceClassification:
         device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
         device = torch.device(device)
-        print("Loading regular BERT)")
+        print("Loading regular BERT")
         model = BertForSequenceClassification.from_pretrained(pretrained_model_name_or_path, *args, **kwargs).to(device).eval()
         print("Loading EBERT embeddings")
         embeddings = load_embedding(pretrained_model_name_or_path)
         return (model ,embeddings )
 
-    @staticmethod
-    def get_ebert():
-        wiki_emb_path = "resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl"
-        mapper_path = "mappers/wikipedia2vec-500-cased.monobert-base-cased.linear.npy"
-        print("Loading ", wiki_emb_path, " and ", mapper_path)
-        wiki_emb = load_embedding(wiki_emb_path)
-        mapper = load_mapper(mapper_path)
+    #@staticmethod
+    def get_ebert(self):
+        #wiki_emb_path = "../resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl"
+        #mapper_path = "../mappers/wikipedia2vec-500-cased.monobert-base-cased.linear.npy"
+        print("Loading ", self.wiki_emb_path, " and ", self.mapper_path)
+        wiki_emb = load_embedding(self.wiki_emb_path)
+        mapper = load_mapper(self.mapper_path)
         return (wiki_emb, mapper)
 
     @staticmethod
