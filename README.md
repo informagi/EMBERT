@@ -32,13 +32,13 @@ All Python packages can be downloaded with `pip install -r requirements.txt`.
 To rerank, call the following function in `Code`:
 
 ```
-python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model pathtomodel --dataset pathtodata --index-dir pathtoindex  --task msmarco --output-file pathtooutput
+python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model pathtomodel --dataset pathtodata --index-dir pathtoindex  --task msmarco --output-file pathtooutput --w2v pathtowikipedia2vec --mapper path2mapper
 ```
 
 For example:
 
 ```
-python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model ../output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6 --dataset ../data/DBpedia-Entity  --index-dir ../indexes/lucene-index-dbpedia_annotated_full  --task msmarco --output-file ../runs/testrun.tsv
+python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model ../output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6 --dataset ../data/DBpedia-Entity  --index-dir ../indexes/lucene-index-dbpedia_annotated_full  --task msmarco --output-file ../runs/testrun.tsv --w2v ../resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl --mapper ../mappers/wikipedia2vec-500-cased.monobert-base-cased.linear.npy
 ```
 
 
