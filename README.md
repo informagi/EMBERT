@@ -18,14 +18,27 @@ cd Code/make.sh
 
 Note that this will download around 40 gb of data.
 
-All Python packages can be downloaded with `pip install -r requirements.txt`
+We recommend running this code in an virtual environment using Python 3.7 (Using newer versions leads to conflicts with Pytorch), for example by using:
+
+```
+python3.7 -m venv venv
+source venv/bin/activate
+```
+
+All Python packages can be downloaded with `pip install -r requirements.txt`.
 
 ## Reranking
 
-To rerank, call the following function:
+To rerank, call the following function in `Code`:
 
 ```
-python pygaggle/run/evaluate_passage_ranker.py  --split dev --method seq_class_transformer --model pathtomodel --dataset pathtodataset  --index-dir pathtoindex  --task msmarco --output-file runs/testrun.tsv
+python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model pathtomodel --dataset pathtodata --index-dir pathtoindex  --task msmarco --output-file pathtooutput
+```
+
+For example:
+
+```
+python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model ../output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6 --dataset ../data/DBpedia-Entity  --index-dir ../indexes/lucene-index-dbpedia_annotated_full  --task msmarco --output-file ../runs/testrun.tsv
 ```
 
 
