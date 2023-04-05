@@ -34,7 +34,7 @@ wget -O output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz https
 tar -xvf output/monobert-large-msmarco-dbpedia_acc_batch_64_e6_noent.tar.gz -C output/
 
 
-wget -O output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6.tar.gz  https://surfdrive.surf.nl/files/index.php/s/eJsvZLceqi6kPeY
+wget -O output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6.tar.gz  https://surfdrive.surf.nl/files/index.php/s/eJsvZLceqi6kPeY/download
 tar -xvf output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6.tar.gz -C output/
 
 mkdir -p data
@@ -44,3 +44,8 @@ tar -xvf data/DBpedia-Entity.tar.gz -C data/
 
 wget -O data/DBpedia-Entity-noent.tar.gz https://surfdrive.surf.nl/files/index.php/s/EJbDiEwqOYglEgD/download
 tar -xvf data/DBpedia-Entity-noent.tar.gz -C data/
+
+mkdir -p traintest
+
+wget -O traintest/dbpedia_crossfolds.tar.gz https://surfdrive.surf.nl/files/index.php/s/WY47myXPsVVtMnU/download
+tar -xvf traintest/dbpedia_crossfolds.tar.gz -C traintest/

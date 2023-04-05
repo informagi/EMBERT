@@ -13,18 +13,32 @@ In the Runs Directory, you can find all runs in the paper, with the same name as
 In the Code directory, all code is available. All models and supplementary materials can be downloaded by running
 
 ```
-cd Code/
-sh make.sh
+cd Code/make.sh
 ```
 
 Note that this will download around 40 gb of data.
 
-## Reranking
-
-To rerank, call the following function:
+We recommend running this code in an virtual environment using Python 3.7 (Using newer versions leads to conflicts with Pytorch), for example by using:
 
 ```
-python pygaggle/run/evaluate_passage_ranker.py  --split dev --method seq_class_transformer --model pathtomodel --dataset pathtodataset  --index-dir pathtoindex  --task msmarco --output-file runs/testrun.tsv
+python3.7 -m venv venv
+source venv/bin/activate
+```
+
+All Python packages can be downloaded with `pip install -r requirements.txt`.
+
+## Reranking
+
+To rerank, call the following function in `Code`:
+
+```
+python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model pathtomodel --dataset pathtodata --index-dir pathtoindex  --task msmarco --output-file pathtooutput --w2v pathtowikipedia2vec --mapper path2mapper
+```
+
+For example:
+
+```
+python -m pygaggle.run.evaluate_passage_ranker  --split dev --method seq_class_transformer --model ../output/monobert-large-msmarco-finetuned_acc_batch_testmodel_acc_batch_600k_64_e6 --dataset ../data/DBpedia-Entity  --index-dir ../indexes/lucene-index-dbpedia_annotated_full  --task msmarco --output-file ../runs/testrun.tsv --w2v ../resources/wikipedia2vec/wikipedia-20190701/wikipedia2vec_500.pkl --mapper ../mappers/wikipedia2vec-500-cased.monobert-base-cased.linear.npy
 ```
 
 
@@ -36,7 +50,31 @@ To use on your own datasets, make sure to provide all documents and queries as i
 
 An example of finetuning can be found in `Code/retraining_dbpedia_entity_folds.py`.
 
-## Citation
+
+## Downloads
+
+Everything needed to evaluate the model can be downloaded with the script in `Code/make.sh`
+If you just want the seperate models or Lucene indexes, they can be downloaded here.
+
+[TSV of DBpedia Entity](https://surfdrive.surf.nl/files/index.php/s/fT0R5czH4hmIlgw/download)
+
+[TSV of DBpedia Entity Annotated](https://surfdrive.surf.nl/files/index.php/s/hjMd4zYYn3VXoRM/download)
+
+[Lucene index for DBpedia Entity](https://surfdrive.surf.nl/files/index.php/s/K4TWcIWLHvDhrOK/download)
+
+[Lucene index for DBpedia Entity annotated](https://surfdrive.surf.nl/files/index.php/s/ItjlwVhm8sApcZS/download)
+
+[Wikipedia2vec embeddings](https://surfdrive.surf.nl/files/index.php/s/mOYK4gZfI3yjsZd/download)
+
+[EMBERT finetuned on Annotated Dbpedia, all 5 folds](https://surfdrive.surf.nl/files/index.php/s/gfCY1dc5CdkbS5S/download)
+
+[MonoBERT fintetuned on DBpedia, not annotated, all 5 folds](https://surfdrive.surf.nl/files/index.php/s/5KQIRtiKikObJDG/download)
+
+[EMBERT fintetuned on MSMARCO (EMBERT (1st) in paper)](https://surfdrive.surf.nl/files/index.php/s/eJsvZLceqi6kPeY)
+
+
+
+## Citation and contact
 
 You can cite us using 
 
@@ -49,5 +87,7 @@ title = {{Entity-aware Transformers for Entity Search}},
 year = {2022}
 }
 ```
+
+In case anything is missing, please either make an issue or send an emal to emma.gerritse@ru.nl
 
 

@@ -5,6 +5,7 @@ import gc
 from ebert.config import *
 
 def load_embedding(name, **kwargs): 
+    name = str(name)
     if name.startswith("bert-") or name.startswith("xlnet-") or name.startswith("t5-") \
             or name.startswith("roberta-") or name.startswith("xlm-") or "bert" in name:
         return TransformerEmbedding(name)
