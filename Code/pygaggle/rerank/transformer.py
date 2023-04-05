@@ -231,7 +231,7 @@ class EMBERT(Reranker):
         self.tokenizer = tokenizer or self.get_tokenizer()
         self.device = next(self.model[0].parameters(), None).device
         self.ebert = self.get_ebert()
-        self.ent_preamb = ['ENTITY/', 'ENTITIY/']
+        self.ent_preamb = 'ENTITY/'
 
 
     @staticmethod
@@ -269,7 +269,7 @@ class EMBERT(Reranker):
         # print(words)
         words = words.split()
         for word in words:
-            if self.ent_preamb[0] in word or self.ent_preamb[1] in word:
+            if self.ent_preamb in word:
                 tokenized['token_type_ids'] += 2 * [label]
                 tokenized['input_ids'] += ['/', word]
                 #tokenized['input_ids'] += ['/', '[MASK]']
@@ -318,7 +318,7 @@ class EMBERT(Reranker):
         vectors = []
         # print("Vectorizing tokens", tokens)
         for tok in tokens:
-            if self.ent_preamb[0] in tok or self.ent_preamb[1] in tok:
+            if self.ent_preamb:
                 if tok in wiki_emb:
                     vectors.append(mapper.apply(wiki_emb[tok]))
                 else:
