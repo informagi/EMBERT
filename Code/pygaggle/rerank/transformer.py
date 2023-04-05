@@ -238,9 +238,6 @@ class EMBERT(Reranker):
         self.ent_preamb = 'ENTITY/'
 
 
-
-
-
     @staticmethod
     def get_model(pretrained_model_name_or_path: # str = 'models/bert-large-uncased',
                   str =  'models/monobert-large-msmarco',
@@ -325,7 +322,7 @@ class EMBERT(Reranker):
         vectors = []
         # print("Vectorizing tokens", tokens)
         for tok in tokens:
-            if self.ent_preamb:
+            if self.ent_preamb in tok:
                 if tok in wiki_emb:
                     vectors.append(mapper.apply(wiki_emb[tok]))
                 else:
